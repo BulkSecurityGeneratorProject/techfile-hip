@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-tipo-error-ims-heading" jhiTranslate="techfileApp.tipoError.home.createOrEditLabel">Create or edit a Tipo Error</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!tipoError.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="tipoError.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="techfileApp.tipoError.codigo" for="field_codigo">Codigo</label>
+                    <input type="text" class="form-control" name="codigo" id="field_codigo"
+                        [(ngModel)]="tipoError.codigo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="techfileApp.tipoError.descripcion" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                        [(ngModel)]="tipoError.descripcion" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="techfileApp.tipoError.nivel" for="field_nivel">Nivel</label>
+                    <select class="form-control" name="nivel" [(ngModel)]="tipoError.nivel" id="field_nivel" >
+                        <option value="FATAL">{{'techfileApp.NivelError.FATAL' | translate}}</option>
+                        <option value="ERROR">{{'techfileApp.NivelError.ERROR' | translate}}</option>
+                        <option value="WARN">{{'techfileApp.NivelError.WARN' | translate}}</option>
+                    </select>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

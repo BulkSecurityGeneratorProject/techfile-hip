@@ -1,0 +1,29 @@
+{
+    "name": "TipoError",
+    "fields": [
+        {
+            "fieldName": "codigo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nivel",
+            "fieldType": "NivelError",
+            "fieldValues": "FATAL,ERROR,WARN"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180806023615",
+    "entityTableName": "tipo_error",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "ims"
+}

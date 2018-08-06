@@ -1,0 +1,24 @@
+
+{
+    "techfileApp": {
+        "cierre" : {
+            "home": {
+                "title": "Cierres",
+                "createLabel": "Create a new Cierre",
+                "createOrEditLabel": "Create or edit a Cierre"
+            },
+            "created": "A new Cierre is created with identifier {{ param }}",
+            "updated": "A Cierre is updated with identifier {{ param }}",
+            "deleted": "A Cierre is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Cierre {{ id }}?"
+            },
+            "detail": {
+                "title": "Cierre"
+            },
+            "fechaCierre": "Fecha Cierre",
+            "mesCerrado": "Mes Cerrado",
+            "mesAbierto": "Mes Abierto"
+        }
+    }
+}

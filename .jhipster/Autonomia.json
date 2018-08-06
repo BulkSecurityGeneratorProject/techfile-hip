@@ -1,0 +1,31 @@
+{
+    "name": "Autonomia",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipValidateRules": "required",
+            "relationshipName": "provincia",
+            "otherEntityName": "provincia",
+            "otherEntityRelationshipName": "autonomia"
+        }
+    ],
+    "changelogDate": "20180806023557",
+    "entityTableName": "autonomia",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "ims"
+}

@@ -1,0 +1,25 @@
+
+{
+    "techfileApp": {
+        "errorRegistro" : {
+            "home": {
+                "title": "Error Registros",
+                "createLabel": "Crear nuevo Error Registro",
+                "createOrEditLabel": "Crear o editar Error Registro"
+            },
+            "created": "Un nuevo Error Registro ha sido creado con el identificador {{ param }}",
+            "updated": "Un Error Registro ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Error Registro ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Error Registro {{ id }}?"
+            },
+            "detail": {
+                "title": "Error Registro"
+            },
+            "numeroLinea": "Numero Linea",
+            "textoLinea": "Texto Linea",
+            "tipoError": "Tipo Error",
+            "proceso": "Proceso"
+        }
+    }
+}

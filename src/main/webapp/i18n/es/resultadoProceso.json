@@ -1,0 +1,10 @@
+{
+    "techfileApp": {
+        "ResultadoProceso" : {
+            "null": "",
+            "OK": "OK",
+            "OK_CON_ERRORES": "OK_CON_ERRORES",
+            "ERRONEO": "ERRONEO"
+        }
+    }
+}

@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tipoError">
+            <h2><span jhiTranslate="techfileApp.tipoError.detail.title">Tipo Error</span> {{tipoError.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="techfileApp.tipoError.codigo">Codigo</span></dt>
+                <dd>
+                    <span>{{tipoError.codigo}}</span>
+                </dd>
+                <dt><span jhiTranslate="techfileApp.tipoError.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{tipoError.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="techfileApp.tipoError.nivel">Nivel</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'techfileApp.NivelError.' + tipoError.nivel}}">{{tipoError.nivel}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tipo-error-ims', tipoError.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

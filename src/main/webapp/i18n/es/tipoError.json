@@ -1,0 +1,24 @@
+
+{
+    "techfileApp": {
+        "tipoError" : {
+            "home": {
+                "title": "Tipo Errors",
+                "createLabel": "Crear nuevo Tipo Error",
+                "createOrEditLabel": "Crear o editar Tipo Error"
+            },
+            "created": "Un nuevo Tipo Error ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tipo Error ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tipo Error ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Tipo Error {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo Error"
+            },
+            "codigo": "Codigo",
+            "descripcion": "Descripcion",
+            "nivel": "Nivel"
+        }
+    }
+}

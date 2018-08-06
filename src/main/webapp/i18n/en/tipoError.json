@@ -1,0 +1,24 @@
+
+{
+    "techfileApp": {
+        "tipoError" : {
+            "home": {
+                "title": "Tipo Errors",
+                "createLabel": "Create a new Tipo Error",
+                "createOrEditLabel": "Create or edit a Tipo Error"
+            },
+            "created": "A new Tipo Error is created with identifier {{ param }}",
+            "updated": "A Tipo Error is updated with identifier {{ param }}",
+            "deleted": "A Tipo Error is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tipo Error {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo Error"
+            },
+            "codigo": "Codigo",
+            "descripcion": "Descripcion",
+            "nivel": "Nivel"
+        }
+    }
+}

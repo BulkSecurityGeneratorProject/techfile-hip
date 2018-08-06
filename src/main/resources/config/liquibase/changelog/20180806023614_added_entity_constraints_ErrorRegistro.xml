@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity ErrorRegistro.
+    -->
+    <changeSet id="20180806023614-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tipo_error_id"
+                                 baseTableName="error_registro"
+                                 constraintName="fk_error_registro_tipo_error_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_error"/>
+
+        <addForeignKeyConstraint baseColumnNames="proceso_id"
+                                 baseTableName="error_registro"
+                                 constraintName="fk_error_registro_proceso_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="proceso"/>
+
+    </changeSet>
+</databaseChangeLog>

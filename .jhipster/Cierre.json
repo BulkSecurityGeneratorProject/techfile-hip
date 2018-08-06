@@ -1,0 +1,39 @@
+{
+    "name": "Cierre",
+    "fields": [
+        {
+            "fieldName": "fechaCierre",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "mesCerrado",
+            "otherEntityName": "mes",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "cierre"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "mesAbierto",
+            "otherEntityName": "mes",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "cierre"
+        }
+    ],
+    "changelogDate": "20180806023612",
+    "entityTableName": "cierre",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "ims"
+}

@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="errorRegistro">
+            <h2><span jhiTranslate="techfileApp.errorRegistro.detail.title">Error Registro</span> {{errorRegistro.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="techfileApp.errorRegistro.numeroLinea">Numero Linea</span></dt>
+                <dd>
+                    <span>{{errorRegistro.numeroLinea}}</span>
+                </dd>
+                <dt><span jhiTranslate="techfileApp.errorRegistro.textoLinea">Texto Linea</span></dt>
+                <dd>
+                    <span>{{errorRegistro.textoLinea}}</span>
+                </dd>
+                <dt><span jhiTranslate="techfileApp.errorRegistro.tipoError">Tipo Error</span></dt>
+                <dd>
+                    <div *ngIf="errorRegistro.tipoError">
+                        <a [routerLink]="['/tipo-error-ims', errorRegistro.tipoError?.id, 'view']">{{errorRegistro.tipoError?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="techfileApp.errorRegistro.proceso">Proceso</span></dt>
+                <dd>
+                    <div *ngIf="errorRegistro.proceso">
+                        <a [routerLink]="['/proceso-ims', errorRegistro.proceso?.id, 'view']">{{errorRegistro.proceso?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/error-registro-ims', errorRegistro.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

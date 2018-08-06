@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="proceso">
+            <h2><span jhiTranslate="techfileApp.proceso.detail.title">Proceso</span> {{proceso.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="techfileApp.proceso.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{proceso.fecha}}</span>
+                </dd>
+                <dt><span jhiTranslate="techfileApp.proceso.duracion">Duracion</span></dt>
+                <dd>
+                    <span>{{proceso.duracion}}</span>
+                </dd>
+                <dt><span jhiTranslate="techfileApp.proceso.resultado">Resultado</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'techfileApp.ResultadoProceso.' + proceso.resultado}}">{{proceso.resultado}}</span>
+                </dd>
+                <dt><span jhiTranslate="techfileApp.proceso.fichero">Fichero</span></dt>
+                <dd>
+                    <div *ngIf="proceso.fichero">
+                        <a [routerLink]="['/fichero-ims', proceso.fichero?.id, 'view']">{{proceso.fichero?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/proceso-ims', proceso.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

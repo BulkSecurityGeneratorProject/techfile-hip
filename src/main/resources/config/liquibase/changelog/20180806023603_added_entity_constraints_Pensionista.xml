@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Pensionista.
+    -->
+    <changeSet id="20180806023603-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="persona_id"
+                                 baseTableName="pensionista"
+                                 constraintName="fk_pensionista_persona_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="persona"/>
+
+        <addForeignKeyConstraint baseColumnNames="perceptor_id"
+                                 baseTableName="pensionista"
+                                 constraintName="fk_pensionista_perceptor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="perceptor"/>
+
+        <addForeignKeyConstraint baseColumnNames="regimen_procedencia_id"
+                                 baseTableName="pensionista"
+                                 constraintName="fk_pensionista_regimen_procedencia_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="regimen_procedencia"/>
+
+        <addForeignKeyConstraint baseColumnNames="pension_concurrente_id"
+                                 baseTableName="pensionista"
+                                 constraintName="fk_pensionista_pension_concurrente_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pension_concurrente"/>
+
+        <addForeignKeyConstraint baseColumnNames="tipo_relacion_id"
+                                 baseTableName="pensionista"
+                                 constraintName="fk_pensionista_tipo_relacion_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_relacion"/>
+
+        <addForeignKeyConstraint baseColumnNames="fichero_id"
+                                 baseTableName="pensionista"
+                                 constraintName="fk_pensionista_fichero_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fichero"/>
+
+        <addForeignKeyConstraint baseColumnNames="discapacidad_id"
+                                 baseTableName="pensionista"
+                                 constraintName="fk_pensionista_discapacidad_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="discapacidad"/>
+
+        <addForeignKeyConstraint baseColumnNames="diagnostico_id"
+                                 baseTableName="pensionista"
+                                 constraintName="fk_pensionista_diagnostico_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="diagnostico"/>
+
+        <addForeignKeyConstraint baseColumnNames="etiologia_id"
+                                 baseTableName="pensionista"
+                                 constraintName="fk_pensionista_etiologia_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="etiologia"/>
+
+    </changeSet>
+</databaseChangeLog>

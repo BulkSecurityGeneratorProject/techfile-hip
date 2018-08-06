@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-error-registro-ims-heading" jhiTranslate="techfileApp.errorRegistro.home.createOrEditLabel">Create or edit a Error Registro</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!errorRegistro.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="errorRegistro.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="techfileApp.errorRegistro.numeroLinea" for="field_numeroLinea">Numero Linea</label>
+                    <input type="number" class="form-control" name="numeroLinea" id="field_numeroLinea"
+                        [(ngModel)]="errorRegistro.numeroLinea" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="techfileApp.errorRegistro.textoLinea" for="field_textoLinea">Texto Linea</label>
+                    <input type="text" class="form-control" name="textoLinea" id="field_textoLinea"
+                        [(ngModel)]="errorRegistro.textoLinea" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="techfileApp.errorRegistro.tipoError" for="field_tipoError">Tipo Error</label>
+                    <select class="form-control" id="field_tipoError" name="tipoError" [(ngModel)]="errorRegistro.tipoError" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoErrorOption.id === errorRegistro.tipoError?.id ? errorRegistro.tipoError : tipoErrorOption" *ngFor="let tipoErrorOption of tipoerrors; trackBy: trackTipoErrorById">{{tipoErrorOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="techfileApp.errorRegistro.proceso" for="field_proceso">Proceso</label>
+                    <select class="form-control" id="field_proceso" name="proceso" [(ngModel)]="errorRegistro.proceso" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="procesoOption.id === errorRegistro.proceso?.id ? errorRegistro.proceso : procesoOption" *ngFor="let procesoOption of procesos; trackBy: trackProcesoById">{{procesoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

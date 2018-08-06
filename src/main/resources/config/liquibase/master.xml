@@ -5,6 +5,34 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023556_added_entity_Provincia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023557_added_entity_Autonomia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023558_added_entity_Mes.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023559_added_entity_PensionConcurrente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023600_added_entity_TipoRelacion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023601_added_entity_RegimenProcedencia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023602_added_entity_Persona.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023603_added_entity_Pensionista.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023604_added_entity_Conviviente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023605_added_entity_Perceptor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023606_added_entity_Fichero.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023607_added_entity_FicheroByte.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023608_added_entity_Discapacidad.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023609_added_entity_Diagnostico.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023610_added_entity_Etiologia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023611_added_entity_Usuario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023612_added_entity_Cierre.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023613_added_entity_Proceso.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023614_added_entity_ErrorRegistro.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023615_added_entity_TipoError.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20180806023556_added_entity_constraints_Provincia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023603_added_entity_constraints_Pensionista.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023604_added_entity_constraints_Conviviente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023605_added_entity_constraints_Perceptor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023606_added_entity_constraints_Fichero.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023612_added_entity_constraints_Cierre.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023613_added_entity_constraints_Proceso.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180806023614_added_entity_constraints_ErrorRegistro.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

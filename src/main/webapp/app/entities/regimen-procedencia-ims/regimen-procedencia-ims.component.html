@@ -1,0 +1,54 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="techfileApp.regimenProcedencia.home.title">Regimen Procedencias</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-regimen-procedencia-ims" [routerLink]="['/regimen-procedencia-ims/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="techfileApp.regimenProcedencia.home.createLabel">
+            Create new Regimen Procedencia
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="regimenProcedencias">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="descripcion"><span jhiTranslate="techfileApp.regimenProcedencia.descripcion">Descripcion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let regimenProcedencia of regimenProcedencias ;trackBy: trackId">
+                <td><a [routerLink]="['/regimen-procedencia-ims', regimenProcedencia.id, 'view' ]">{{regimenProcedencia.id}}</a></td>
+                <td>{{regimenProcedencia.descripcion}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/regimen-procedencia-ims', regimenProcedencia.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/regimen-procedencia-ims', regimenProcedencia.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'regimen-procedencia-ims/'+ regimenProcedencia.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

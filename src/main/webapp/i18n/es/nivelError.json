@@ -1,0 +1,10 @@
+{
+    "techfileApp": {
+        "NivelError" : {
+            "null": "",
+            "FATAL": "FATAL",
+            "ERROR": "ERROR",
+            "WARN": "WARN"
+        }
+    }
+}

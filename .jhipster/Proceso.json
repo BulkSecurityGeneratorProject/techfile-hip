@@ -1,0 +1,42 @@
+{
+    "name": "Proceso",
+    "fields": [
+        {
+            "fieldName": "fecha",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "duracion",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "resultado",
+            "fieldType": "ResultadoProceso",
+            "fieldValues": "OK,OK_CON_ERRORES,ERRONEO"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "errorRegistro",
+            "otherEntityName": "errorRegistro",
+            "otherEntityRelationshipName": "proceso"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "fichero",
+            "otherEntityName": "fichero",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180806023613",
+    "entityTableName": "proceso",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "ims"
+}

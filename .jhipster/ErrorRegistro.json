@@ -1,0 +1,37 @@
+{
+    "name": "ErrorRegistro",
+    "fields": [
+        {
+            "fieldName": "numeroLinea",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "textoLinea",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "tipoError",
+            "otherEntityName": "tipoError",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "proceso",
+            "otherEntityName": "proceso",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180806023614",
+    "entityTableName": "error_registro",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "ims"
+}

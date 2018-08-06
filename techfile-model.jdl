@@ -1,0 +1,249 @@
+entity Provincia {
+	nombre String
+}
+
+entity Autonomia {
+	nombre String required
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Mes {
+	agno Long required,
+	mes Long required
+}
+
+entity PensionConcurrente {
+	codigo String required,
+    descripcion String required
+}
+
+/**
+ * Entidad TipoRelacion
+ * <p>
+ * Relación entre el pensionista y el perceptor
+ 
+ * @author czamorano
+ */
+entity TipoRelacion {
+	descripcion String required
+}
+
+entity RegimenProcedencia {
+	descripcion String required
+}
+
+entity Persona {
+	nombre String required,
+	apellidos String required,
+	tipoIdentificacion TipoIdentificacion required,
+	documentoIdentificacion String required,
+	digitosControl Long required,
+	tipoPension TipoPension required,
+	fechaNacimiento LocalDate,
+	sexo Sexo,
+	estadoCivil EstadoCivil,
+    domicilio String,
+    codigoPostal Long,
+    localidad String,
+    municipio Long,
+    nacionalidad Long,
+    numeroSS Long
+}
+
+entity Pensionista {
+	situacionPension Long,
+	ingresosTotales BigDecimal,
+	trabaja Boolean,
+    totalConvivientes Long,
+    ingresosAnualesConvivientes BigDecimal,
+    gradoMinusvalia Long,
+    porcentajeDiscapacidad Long,
+    baremoFactoresSocialesComplementarios Long,
+    baremoNecesidadTerceraPersona  Long,
+    fechaSolicitudPension LocalDate,
+    fechaResolucionPension LocalDate,
+    fechaAltaNomina LocalDate,
+    importeMensualPension BigDecimal,
+    importeMensualComplementoTerceraPersona BigDecimal,
+    formaCobro FormaCobro,
+    entidadBancaria Long,
+    cuentaBancaria Long,
+    numeroCuenta String
+}
+
+entity Conviviente {
+	orden Long required
+}
+
+entity Perceptor {}
+
+entity Fichero {
+	nombre String required,
+    tamagno String required,
+    fechaCreacionOrigen LocalDate,
+    fechaAltaAplicacion LocalDate required,
+    encoding String,
+    lineas Long required
+}
+
+entity FicheroByte {
+	fileBytes Blob
+}
+
+entity Discapacidad {
+	descripcion String required
+}
+
+entity Diagnostico {
+	descripcion String required
+}
+
+entity Etiologia {
+	descripcion String required
+}
+
+entity Usuario {
+	nombre String required,
+    role Role
+}
+
+entity Cierre {
+	fechaCierre LocalDate
+}
+
+entity Proceso {
+	fecha LocalDate,
+	duracion Long,
+	resultado ResultadoProceso
+}
+
+entity ErrorRegistro {
+	numeroLinea Long,
+	textoLinea String
+}
+
+entity TipoError {
+	codigo String,
+	descripcion String,
+	nivel NivelError
+}
+
+enum NivelError {
+	FATAL,
+	ERROR,
+	WARN
+}
+
+enum ResultadoProceso {
+	OK,
+	OK_CON_ERRORES,
+	ERRONEO
+}
+
+enum Role {
+    FIT_PLANIFICADOR,
+    FIT_AUTONOMIA,
+    FIT_GESTOR
+}
+
+enum Sexo {
+    HOMBRE,
+    MUJER
+}
+
+enum FormaCobro {
+	DIRECTO_EN_VENTANILLA, 
+    INGRESO_EN_CUENTA
+}
+
+enum EstadoCivil {
+    CASADO,
+    DIVORCIADO,
+    SEPARADO,
+    SOLTERO,
+    VIUDO
+}
+
+enum Meses {
+    ZERO, 
+    ENERO, 
+    FEBRERO, 
+    MARZO, 
+    ABRIL, 
+    MAYO, 
+    JUNIO, 
+    JULIO, 
+    AGOSTO, 
+    SEPTIEMBRE, 
+    OCTUBRE, 
+    NOVIEMBRE, 
+    DICIEMBRE
+}
+
+enum TipoIdentificacion {
+    NIF, 
+    NIE, 
+    CODIGO_FISCAL, 
+    OTRO
+}
+
+enum TipoPension {
+    JUBILACION, INVALIDEZ
+}
+
+// unidireccional
+relationship OneToOne {
+	Fichero{ficheroByte} to FicheroByte,
+	Pensionista{persona required} to Persona,
+    Perceptor{persona required} to Persona,
+	Cierre{mesCerrado required} to Mes,
+	Cierre{mesAbierto required} to Mes
+}
+
+// bidireccional
+relationship OneToOne {
+	Pensionista{perceptor required} to Perceptor{pensionista}
+}
+
+
+
+
+// bidireccional
+relationship OneToMany {
+	Autonomia{provincia required} to Provincia{autonomia},
+	Pensionista{conviviente} to Conviviente{pensionista},
+    Fichero{proceso} to Proceso{fichero},
+	Proceso{errorRegistro} to ErrorRegistro{proceso}
+}
+
+// unidireccional
+relationship ManyToOne {
+    Fichero{autonomia} to Autonomia,
+    Fichero{provincia} to Provincia,
+	Pensionista{regimenProcedencia} to RegimenProcedencia,
+    Pensionista{pensionConcurrente} to PensionConcurrente,
+    Pensionista{tipoRelacion} to TipoRelacion,
+	ErrorRegistro{tipoError} to TipoError,
+	Fichero{mes} to Mes,
+	Pensionista{fichero} to Fichero,
+	Pensionista{discapacidad} to Discapacidad,
+    Pensionista{diagnostico} to Diagnostico,
+    Pensionista{etiologia} to Etiologia
+}
+
+//relationship ManyToMany {}
+
+
+// Set pagination options
+paginate Mes, Autonomia, Provincia, Usuario, Cierre, PensionConcurrente, TipoRelacion, RegimenProcedencia, TipoError with infinite-scroll
+paginate Persona, Pensionista, Perceptor, Conviviente, Fichero, FicheroByte, Discapacidad, Diagnostico, Etiologia with pagination
+
+//dto Proceso, ErrorRegistro with mapstruct
+
+// Set service options to all except few
+service ErrorRegistro with serviceClass
+service Mes, Fichero, Pensionista, Proceso with serviceImpl
+
+// Set an angular suffix
+angularSuffix * with ims
